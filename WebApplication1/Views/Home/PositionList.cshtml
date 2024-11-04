@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebApplication1.Models.Position>
+@{
+    ViewData["Title"] = "PositionList";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(modelItem => item.PositionId)</th>
+                <th scope="row">@Html.DisplayFor(modelItem => item.PositionTitle)</th>
+                <th scope="row">@Html.DisplayFor(modelItem => item.DepartmentId)</th>
+               
+            </tr>
+        }
+  
+       
+    </tbody>
+</table>
+

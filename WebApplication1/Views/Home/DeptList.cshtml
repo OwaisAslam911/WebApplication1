@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApplication1.Models.Department>
+@{
+    ViewData["Title"] = "DeptList";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Department Id</th>
+            <th scope="col">Department Name</th>
+            <th scope="col">Organization</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartmentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartmentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrganizationId)
+                </td>
+                
+                
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.OrganizationId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.OrganizationId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.OrganizationId">Delete</a>
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+</table>

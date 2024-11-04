@@ -1,0 +1,25 @@
+﻿@model WebApplication1.Models.AddPosition
+
+@{
+    ViewData["Title"] = "AddPosition";
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Position Name</label>
+        <input type="text" asp-for="Position.PositionTitle" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <select asp-for="Position.DepartmentId" class="form-control" asp-items="ViewBag.ProductCategory">
+            <option>choose options...</option>
+            @foreach (var item in Model.departments)
+            {
+                <option value="@item.DepartmentId">@item.DepartmentName</option>
+            }
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
